@@ -1,29 +1,19 @@
+
+
 //this includes the vehicle class as a module
-const VehicleModule = require("./vehicleBaseClass")
-
-
-// class A28 Mercury Sedan extends VehicleModule{
-//     constructor(maxPassengers, passengers, numberOfWheels, maxSpeed, fuel, scheduleService )
-// this.maxPassengers = maxPassengers
-// this.passenger = passenger
-// this.numberOfWheels = numberOfWheels
-// this.maxSpeed = maxSpeed
-// this.fuel = fuel
-// this.scheduleService = scheduleService
-
-// }
+const VehicleModule = require("./vehicleBaseClass").Vehicle
 
 
 class Car extends VehicleModule {
     constructor(make, model, year, color, mileage) {
-    super(make, model, year,color, mileage);
-    this.maxPassengers = 5;
-    this.passenger = 0;
-    this.numberOfWheels = 4;
-    this.maxSpeed = 160;
-    this.fuel = 10;
-    this.scheduleService = false;
-    }
+        super(make, model, year, color, mileage);
+        this.maxPassengers = 5;
+        this.passenger = 0;
+        this.numberOfWheels = 4;
+        this.maxSpeed = 160;
+        this.fuel = 10;
+        this.scheduleService = false;
+        }
 
 checkService(){
     if(this.mileage > 30000){
@@ -61,13 +51,13 @@ start(){
 
 
 //this shows how to call from this module...
-let v = new VehicleModule.Vehicle("Mercury", "Sedan", "1965", "red", "1100020");
-console.log(v.make)
+let myCar = new Car("Mercury", "Sedan", "1965", "red", "1100020");
 
-VehicleModule.start()
-VehicleModule.loadPassenger(5)
-VehicleModule.stop()
-VehicleModule.checkService()
+
+myCar.start()
+myCar.loadPassenger(5)
+myCar.stop()
+myCar.checkService()
 
 console.log(VehicleModule)
 
